@@ -3,7 +3,7 @@
 # ver1.0, data: 20180810, by MaoYan
 #
 # Description:
-# ShenNJ客车通过性分析
+# ShenNJ客车通过性分析数据导入。
 #------------------------------------------------------------------------------#
 
 
@@ -127,9 +127,4 @@ for (kFileIdx in 1:length(kFileList)) {  # 导入数据
   
   df.trackoff <- rbind(df.trackoff, tmp.df)
 }
-
-
-
-
-
 
