@@ -236,6 +236,65 @@ plot.latforcoeffR12V30 <- ggplot(data = df.latforcoeffR12V30,
 plot.latforcoeffR12V30
 
 
+# 1.4 RAD, 12m, 小结----
+# drivingTraj----
+df.drivingtrajR12 <- subset(x = df.drivingtraj,
+                            df.drivingtraj$curveRad == "R12" &
+                              df.drivingtraj$TrajTyp == "DrivingTraj" &
+                              df.drivingtraj$drivingSpeed != "V40")
+
+plot.drivingtrajR12 <- ggplot(data = df.drivingtrajR12,
+                              aes(x = posX, y = posY)) +
+  geom_path(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(-12, 0)) +
+  scale_y_continuous(limits = c(-12, 12)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.drivingtrajR12
+
+# trackoff----
+df.trackoffR12 <- subset(x = df.trackoff,
+                         df.trackoff$curveRad == "R12" &
+                           df.trackoff$drivingSpeed != "V40")
+
+plot.trackoffR12 <- ggplot(data = df.trackoffR12,
+                           aes(x = Station, y = TrackOff)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(0, 40), breaks = seq(0, 38, 5)) +
+  scale_y_continuous(limits = c(-5, 35), breaks = seq(0, 35, 10)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.trackoffR12
+
+
+# latforcoeff----
+df.latforcoeffR12 <- subset(x = df.latforcoeff,
+                            df.latforcoeff$curveRad == "R12" &
+                              df.latforcoeff$LatForTyp == "LatForAll" &
+                              df.latforcoeff$drivingSpeed != "V40")
+
+plot.latforcoeffR12 <- ggplot(data = df.latforcoeffR12,
+                              aes(x = Station, y = LatFor)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  geom_hline(yintercept = c(-0.2, -0.15, 0.15, 0.2),
+             colour = c("red", "orange", "orange", "red"),
+             size = 1,
+             linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 40), breaks = seq(0, 38, 5)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.latforcoeffR12
+
+
 # 2 RAD, 15m----
 # 2.1 RAD, 15m, V15----
 # drivingTraj & longSpeed----
@@ -448,6 +507,66 @@ plot.latforcoeffR15V30 <- ggplot(data = df.latforcoeffR15V30,
         axis.title = element_text(face = "bold", size = 10))
 
 plot.latforcoeffR15V30
+
+
+# 2.4 RAD, 15m, 小结----
+# drivingTraj----
+df.drivingtrajR15 <- subset(x = df.drivingtraj,
+                            df.drivingtraj$curveRad == "R15" &
+                              df.drivingtraj$TrajTyp == "DrivingTraj" &
+                              df.drivingtraj$drivingSpeed != "V40")
+
+plot.drivingtrajR15 <- ggplot(data = df.drivingtrajR15,
+                              aes(x = posX, y = posY)) +
+  geom_path(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(-15, 0)) +
+  scale_y_continuous(limits = c(-15, 15)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.drivingtrajR15
+
+
+# trackoff----
+df.trackoffR15 <- subset(x = df.trackoff,
+                         df.trackoff$curveRad == "R15" &
+                           df.trackoff$drivingSpeed != "V40")
+
+plot.trackoffR15 <- ggplot(data = df.trackoffR15,
+                           aes(x = Station, y = TrackOff)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(0, 50), breaks = seq(0, 48, 5)) +
+  scale_y_continuous(limits = c(-5, 30), breaks = seq(0, 30, 10)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.trackoffR15
+
+
+# latforcoeff----
+df.latforcoeffR15 <- subset(x = df.latforcoeff,
+                            df.latforcoeff$curveRad == "R15" &
+                              df.latforcoeff$LatForTyp == "LatForAll" &
+                              df.latforcoeff$drivingSpeed != "V40")
+
+plot.latforcoeffR15 <- ggplot(data = df.latforcoeffR15,
+                              aes(x = Station, y = LatFor)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  geom_hline(yintercept = c(-0.2, -0.15, 0.15, 0.2),
+             colour = c("red", "orange", "orange", "red"),
+             size = 1,
+             linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 50), breaks = seq(0, 48, 5)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.latforcoeffR15
 
 
 # 3 RAD, 30m----
@@ -735,6 +854,62 @@ plot.latforcoeffR30V40 <- ggplot(data = df.latforcoeffR30V40,
 plot.latforcoeffR30V40
 
 
+# 3.5 RAD, 30m, 小结----
+df.drivingtrajR30 <- subset(x = df.drivingtraj,
+                            df.drivingtraj$curveRad == "R30" &
+                              df.drivingtraj$TrajTyp == "DrivingTraj")
+
+plot.drivingtrajR30 <- ggplot(data = df.drivingtrajR30,
+                              aes(x = posX, y = posY)) +
+  geom_path(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(-30, 0)) +
+  scale_y_continuous(limits = c(-30, 30)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.drivingtrajR30
+
+
+# trackoff----
+df.trackoffR30 <- subset(x = df.trackoff,
+                         df.trackoff$curveRad == "R30")
+
+plot.trackoffR30 <- ggplot(data = df.trackoffR30,
+                           aes(x = Station, y = TrackOff)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(0, 95), breaks = seq(0, 95, 10)) +
+  scale_y_continuous(limits = c(-5, 30), breaks = seq(0, 30, 10)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.trackoffR30
+
+
+# latforcoeff----
+df.latforcoeffR30 <- subset(x = df.latforcoeff,
+                            df.latforcoeff$curveRad == "R30" &
+                              df.latforcoeff$LatForTyp == "LatForAll")
+
+plot.latforcoeffR30 <- ggplot(data = df.latforcoeffR30,
+                              aes(x = Station, y = LatFor)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  geom_hline(yintercept = c(-0.2, -0.15, 0.15, 0.2),
+             colour = c("red", "orange", "orange", "red"),
+             size = 1,
+             linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 95), breaks = seq(0, 95, 10)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.latforcoeffR30
+
+
 # 4 RAD, 40m----
 # 4.1 RAD, 40m, V15----
 # drivingTraj & longSpeed----
@@ -1020,5 +1195,57 @@ plot.latforcoeffR40V40 <- ggplot(data = df.latforcoeffR40V40,
 plot.latforcoeffR40V40
 
 
+# 4.5 RAD, 40m, 小结----
+df.drivingtrajR40 <- subset(x = df.drivingtraj,
+                            df.drivingtraj$curveRad == "R40" &
+                              df.drivingtraj$TrajTyp == "DrivingTraj")
 
+plot.drivingtrajR40 <- ggplot(data = df.drivingtrajR40,
+                              aes(x = posX, y = posY)) +
+  geom_path(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(-40, 0)) +
+  scale_y_continuous(limits = c(-40, 40)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.drivingtrajR40
+
+
+# trackoff----
+df.trackoffR40 <- subset(x = df.trackoff,
+                         df.trackoff$curveRad == "R40")
+
+plot.trackoffR40 <- ggplot(data = df.trackoffR40,
+                           aes(x = Station, y = TrackOff)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  scale_x_continuous(limits = c(0, 125), breaks = seq(0, 125, 10)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.trackoffR40
+
+
+# latforcoeff----
+df.latforcoeffR40 <- subset(x = df.latforcoeff,
+                            df.latforcoeff$curveRad == "R40" &
+                              df.latforcoeff$LatForTyp == "LatForAll")
+
+plot.latforcoeffR40 <- ggplot(data = df.latforcoeffR40,
+                              aes(x = Station, y = LatFor)) +
+  geom_line(aes(colour = factor(drivingSpeed)), size = 1) +
+  geom_hline(yintercept = c(-0.2, -0.15, 0.15, 0.2),
+             colour = c("red", "orange", "orange", "red"),
+             size = 1,
+             linetype = "dashed") +
+  scale_x_continuous(limits = c(0, 125), breaks = seq(0, 125, 10)) +
+  theme(legend.position = "top",
+        legend.title = element_blank(),
+        axis.text = element_text(face = "bold", size = 10),
+        axis.title = element_text(face = "bold", size = 10))
+
+plot.latforcoeffR40
 
