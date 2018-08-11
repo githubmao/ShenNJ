@@ -9,7 +9,8 @@
 
 library(data.table)
 library(ggplot2)
-
+library(gridExtra)
+options(scipen = 200)
 
 # 导入drivingTraj数据----
 setwd(dir = "E:/R/ShenNJ/Data/DrivingTraj")  # 设置工作目录
@@ -19,15 +20,23 @@ df.drivingtraj <- data.frame()  # 创建用于合并数据的数据集
 
 for (kFileIdx in 1:length(kFileList)) {  # 导入数据
   
-  kColName <- c("posX", "posY")
+  tmp.df <- read.table(file = kFileList[kFileIdx],
+                       header = TRUE,
+                       sep = "",
+                       stringsAsFactors = FALSE,
+                       skip = 1,
+                       col.names = c("posX", "posY"))
   
-  tmp.df <- fread(kFileList[kFileIdx],
-                  header = T,
-                  sep = "auto",
-                  stringsAsFactors = FALSE,
-                  data.table = FALSE,
-                  skip = "Xo",
-                  col.names = kColName)
+  kXDesignRowNo <- which(tmp.df$posX == "X_Design")
+  kXTargetRowNo <- which(tmp.df$posX == "X_Target")
+  
+  tmp.df1 <- tmp.df[1:(kXDesignRowNo - 1),]
+  tmp.df1$TrajTyp <- "DrivingTraj"
+  
+  tmp.df2 <- tmp.df[(kXTargetRowNo + 1):length(tmp.df$posX),]
+  tmp.df2$TrajTyp <- "TargetTraj"
+  
+  tmp.df <- rbind(tmp.df1, tmp.df2)
   
   # 添加半径值
   tmp.df$curveRad <- strsplit(x = kDataName[kFileIdx], split = "_")[[1]][2]
@@ -42,7 +51,7 @@ for (kFileIdx in 1:length(kFileList)) {  # 导入数据
 setwd(dir = "E:/R/ShenNJ/Data/latForCoeff")
 kFileList <- list.files(pattern = "*.txt")
 kDataName <- gsub(".txt", "", kFileList)
-df.latForCoeff <- data.frame()
+df.latforcoeff <- data.frame()
 
 for (kFileIdx in 1:length(kFileList)) {
   
@@ -71,7 +80,7 @@ for (kFileIdx in 1:length(kFileList)) {
   # 添加行驶速度
   tmp.df$drivingSpeed <- strsplit(x = kDataName[kFileIdx], split = "_")[[1]][3]
   
-  df.latForCoeff <- rbind(df.latForCoeff, tmp.df)
+  df.latforcoeff <- rbind(df.latforcoeff, tmp.df)
 }
 
 
