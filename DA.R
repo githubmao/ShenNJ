@@ -73,6 +73,8 @@ plot.trackoffR12V15 <- ggplot(data = df.trackoffR12V15,
 
 plot.trackoffR12V15
 
+max(df.trackoffR12V15$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR12V15 <- subset(x = df.latforcoeff,
@@ -144,6 +146,8 @@ plot.trackoffR12V20 <- ggplot(data = df.trackoffR12V20,
 
 plot.trackoffR12V20
 
+max(df.trackoffR12V20$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR12V20 <- subset(x = df.latforcoeff,
@@ -210,6 +214,7 @@ plot.trackoffR12V30 <- ggplot(data = df.trackoffR12V30,
                               aes(x = Station, y = TrackOff)) +
   geom_line(size = 1) +
   scale_x_continuous(limits = c(0, 40), breaks = seq(0, 38, 5)) +
+  scale_y_continuous(limits = c(0, 30), breaks = seq(0, 30, 5)) +
   theme(axis.text = element_text(face = "bold", size = 10),
         axis.title = element_text(face = "bold", size = 10))
 
@@ -346,6 +351,8 @@ plot.trackoffR15V15 <- ggplot(data = df.trackoffR15V15,
 
 plot.trackoffR15V15
 
+min(df.trackoffR15V15$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR15V15 <- subset(x = df.latforcoeff,
@@ -417,6 +424,8 @@ plot.trackoffR15V20 <- ggplot(data = df.trackoffR15V20,
 
 plot.trackoffR15V20
 
+min(df.trackoffR15V20$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR15V20 <- subset(x = df.latforcoeff,
@@ -483,6 +492,7 @@ plot.trackoffR15V30 <- ggplot(data = df.trackoffR15V30,
                               aes(x = Station, y = TrackOff)) +
   geom_line(size = 1) +
   scale_x_continuous(limits = c(0, 50), breaks = seq(0, 48, 5)) +
+  scale_y_continuous(limits = c(0, 25), breaks = seq(0, 25, 5)) +
   theme(axis.text = element_text(face = "bold", size = 10),
         axis.title = element_text(face = "bold", size = 10))
 
@@ -620,6 +630,8 @@ plot.trackoffR30V15 <- ggplot(data = df.trackoffR30V15,
 
 plot.trackoffR30V15
 
+min(df.trackoffR30V15$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR30V15 <- subset(x = df.latforcoeff,
@@ -691,6 +703,8 @@ plot.trackoffR30V20 <- ggplot(data = df.trackoffR30V20,
 
 plot.trackoffR30V20
 
+min(df.trackoffR30V20$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR30V20 <- subset(x = df.latforcoeff,
@@ -761,6 +775,8 @@ plot.trackoffR30V30 <- ggplot(data = df.trackoffR30V30,
         axis.title = element_text(face = "bold", size = 10))
 
 plot.trackoffR30V30
+
+min(df.trackoffR30V30$TrackOff)
 
 
 # latforcoeff----
@@ -961,6 +977,8 @@ plot.trackoffR40V15 <- ggplot(data = df.trackoffR40V15,
 
 plot.trackoffR40V15
 
+min(df.trackoffR40V15$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR40V15 <- subset(x = df.latforcoeff,
@@ -1031,6 +1049,8 @@ plot.trackoffR40V20 <- ggplot(data = df.trackoffR40V20,
         axis.title = element_text(face = "bold", size = 10))
 
 plot.trackoffR40V20
+
+min(df.trackoffR40V20$TrackOff)
 
 
 # latforcoeff----
@@ -1103,6 +1123,8 @@ plot.trackoffR40V30 <- ggplot(data = df.trackoffR40V30,
 
 plot.trackoffR40V30
 
+min(df.trackoffR40V30$TrackOff)
+
 
 # latforcoeff----
 df.latforcoeffR40V30 <- subset(x = df.latforcoeff,
@@ -1173,6 +1195,8 @@ plot.trackoffR40V40 <- ggplot(data = df.trackoffR40V40,
         axis.title = element_text(face = "bold", size = 10))
 
 plot.trackoffR40V40
+
+min(df.trackoffR40V40$TrackOff)
 
 
 # latforcoeff----
